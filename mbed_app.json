@@ -1,0 +1,51 @@
+{
+    "macros": [
+        "MBED_CONF_APP_MAIN_STACK_SIZE=0x2000",
+        "MBEDTLS_USER_CONFIG_FILE=\"mbedtls_user_config.h\""
+    ],
+    "target_overrides": {
+        "*": {
+            "platform.stdio-baud-rate"              : 115200,
+            "platform.stdio-convert-newlines"       : true,
+            "platform.heap-stats-enabled"           : 1,
+            "mbed-trace.enable"                     : null,
+            "nsapi.default-wifi-security"           : "WPA_WPA2",
+            "nsapi.default-wifi-ssid"               : "\"SSID\"",
+            "nsapi.default-wifi-password"           : "\"Password\"",
+            "drivers.uart-serial-rxbuf-size"        : 1024,
+            "drivers.uart-serial-txbuf-size"        : 1024,
+            "aliyun-linkkit.prod-dev-auth-path"     : "\"/sd/prod-dev-auth\"",
+            "aliyun-linkkit.alink-conf-path"        : "\"/sd/alink-conf\"",
+            "aliyun-linkkit.kv-store-path"          : "\"/sd/kv-store\"",
+            "aliyun-linkkit.upg-fw-path"            : "\"/sd/upg-fw\"",
+            "aliyun-linkkit.mbedtls-debug-level"    : 1,
+            "default-mount-point"                   : "\"sd\""
+        },
+        "NUMAKER_PFM_NUC472": {
+            "target.network-default-interface-type" : "ETHERNET",
+            "target.components_add"                 : ["NUSD"],
+            "target.macros_add": [
+                "ESP8266_AT_SEL=ESP8266_AT_EXTERN"
+            ]
+        },
+        "NUMAKER_PFM_M487": {
+            "target.network-default-interface-type" : "ETHERNET",
+            "target.components_add"                 : ["NUSD"],
+            "target.macros_add": [
+                "ESP8266_AT_SEL=ESP8266_AT_EXTERN"
+            ]
+        },
+        "NUMAKER_IOT_M487": {
+            "target.network-default-interface-type" : "WIFI",
+            "target.components_add"                 : ["NUSD"],
+            "target.macros_add": [
+                "ESP8266_AT_SEL=ESP8266_AT_ONBOARD"
+            ]
+        }
+    },
+    "config": {
+        "default-mount-point": {
+            "help": "Default file system mount point"
+        }
+    }
+}
